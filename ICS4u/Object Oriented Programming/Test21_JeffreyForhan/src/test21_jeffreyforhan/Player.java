@@ -29,6 +29,7 @@ public class Player {
         drawCard();
     }
     /**
+     * description:
      * pre: Player selects to pick a new
      * post: Adds new card to the player's hand
      */
@@ -36,6 +37,11 @@ public class Player {
         //Give value of 1-13
         cardNum = randy.nextInt(13)+1;
     }
+    /**
+     * description:
+     * pre:
+     * post:
+     */
     public void setValue(){
         
         drawCard();
@@ -51,15 +57,16 @@ public class Player {
         }else{
             score += 10;
         }
-    }
-    
+    }    
     /**
-     * Makes menu, and allows user to pick what to do
-     * Pre: none
-     * Post: creates menu for user
+     * description: Makes menu, and allows user to pick what to do
+     * pre: none
+     * post: creates menu for user
      */
     public void makeMove(){
         Scanner choose = new Scanner(System.in);
+        
+        System.out.print("(1) - Draw a new card\n(2) - Show current card value\n(0) - Exit program\nSelect option: ");
         
         try{
             if(choose.nextInt() == 1){
@@ -68,23 +75,34 @@ public class Player {
                 getValue();
             }else if(choose.nextInt() == 0){
                 System.out.println("You have exited.");
+                choose.close();
             }
         }catch(InputMismatchException e){
             System.out.println("Invalid input");
             System.err.println("InputMismatchException: " + e.getMessage());
         }
-        choose.close();
     }
-    
+    /**
+     * description:
+     * pre:
+     * post:
+     * @return the player's current score
+     */
     public int getValue(){
         return score;
     }
-    
-    public int compareTo(Object c){
-        Player other = (Player)c;
-        if(other.getValue() > score){
+    /**
+     * description: 
+     * pre:
+     * post:
+     * @param obj the object that this object is being compared to
+     * @return 1(this player has a higher score), -1(other player has a higher score), 0(both scores are the same)
+     */
+    public int compareTo(Object obj){
+        Player other = (Player)obj;
+        if(score > other.getValue()){
             return 1;
-        }else if(other.getValue() < score){
+        }else if(score < other.getValue() ){
             return -1;
         }else{
             return 0;
