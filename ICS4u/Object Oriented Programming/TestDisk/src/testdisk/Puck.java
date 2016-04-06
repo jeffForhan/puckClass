@@ -77,7 +77,7 @@ public class Puck extends Disk{
         Puck otherPuck = (Puck)obj;
         if(otherPuck.getWeight() == getWeight()){
             return(true);
-        }else{
+        }else{ 
             return(false);
         }
     }

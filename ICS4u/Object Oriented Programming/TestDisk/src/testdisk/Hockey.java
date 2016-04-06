@@ -24,7 +24,7 @@ package testdisk;
                 
                 System.out.println("The youth puck has a radius of " + youthPuck.getRadius());
                 System.out.println(youthPuck.toString());
-                
+                 
                 if(youthPuck.equals(duplicatePuck)){
                     System.out.println("Pucks are the same.");
                 }else{
