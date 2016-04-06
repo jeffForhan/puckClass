@@ -6,6 +6,11 @@ package testdisk;
  * @author Jeffrey Forhan
  */
 public class Puck extends Disk{
+    
+    final private double MIN_STD_WEIGHT = 5;
+    final private double MAX_STD_WEIGHT = 5.5;
+    final private double MIN_YTH_WEIGHT = 4;
+    final private double MAX_YTH_WEIGHT = 4.5;
     private double weight;
     private boolean youth;
     private boolean standard;
@@ -49,11 +54,11 @@ public class Puck extends Disk{
      * pre: None
      * post: Returns the puck's division classification
      */
-    public void setDivision(){
-        if(4 > weight && weight < 4.5){
+    public final void setDivision(){
+        if(MIN_YTH_WEIGHT >= weight && weight <= MAX_YTH_WEIGHT){
             youth = true;
             standard = false;
-        }else if(5 < weight && weight < 5.5){
+        }else if(MIN_STD_WEIGHT <= weight && weight <= MAX_STD_WEIGHT){
             youth = false;
             standard = true;
         }else{
